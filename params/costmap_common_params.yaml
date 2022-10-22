@@ -1,0 +1,24 @@
+# map_type: costmap
+
+obstacle_range: 3.0
+raytrace_range: 3.0
+
+publish_voxel_map: false
+transform_tolerance: 0.5
+meter_scoring: true
+
+footprint: [[-0.105, -0.105], [-0.105, 0.105], [0.041, 0.105], [0.041, -0.105]] # for turtlebot3-burger
+footprint_padding: 0.05
+
+plugins:
+- {name: obstacles_layer, type: "costmap_2d::ObstacleLayer"}
+- {name: inflater_layer, type: "costmap_2d::InflationLayer"}
+
+obstacles_layer:
+  observation_sources: scan
+  # topic - topic name of scan.
+  scan: {data_type: LaserScan, topic: scan, marking: true, clearing: true}
+
+
+inflater_layer:
+  inflation_radius: 0.30
