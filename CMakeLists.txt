@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(move_nav)
+project(odom_nav)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
